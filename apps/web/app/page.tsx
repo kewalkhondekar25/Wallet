@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
 import { useAppDispatch, useAppSelector } from "./redux/hooks/hooks";
-import {increase} from "../app/redux/features/counter/counterSlice"
+import {increase, decrease} from "../app/redux/features/counter/counterSlice"
 
 export default function Home() {
 
@@ -13,8 +13,12 @@ export default function Home() {
   return (
     <div>
       <button className="bg-black text-white" onClick={() => dispatch(increase())}>
-        {count}
+        +
       </button>
+        {count}
+      <button className="bg-black text-white" onClick={() => dispatch(decrease())}>
+        -
+      </button> 
     </div>
   );
 }
